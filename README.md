@@ -1,2 +1,8 @@
-# Animations
-flutter动画，一个只有dart语言写的常用动画。
+# flutter_animations
+
+flutter动画，纯dart语言写的动画，让动画用起来更简单
+
+## Getting Started
+
+|![](img/sound.gif)| 
+|:-:|
