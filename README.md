@@ -24,5 +24,5 @@ import 'package:flutter_animations/flutter_animations.dart';
 ```
 
 
-
-## [LICENSE](LICENSE)
+## [收藏✨✨不迷路](https://github.com/ifgyong/flutter_animations)
+## [MIT License](LICENSE)
