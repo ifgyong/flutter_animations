@@ -50,7 +50,7 @@ class SoundWidget extends StatefulWidget {
       this.centerFill,
       this.soundDirection}) {
     this.color ??= Colors.green;
-    stopColor ??= Colors.black12;
+//    stopColor ??= Colors.black12;
     radius ??= 50;
     bgColor ??= Colors.black12;
     lineWidth ??= 4;
@@ -176,7 +176,7 @@ class _CustomSoundWidget extends CustomPainter {
         _paint.color = this.bgColor;
       }
       if (stop == true) {
-        _paint.color = bgColor;
+        _paint.color = stopColor;
       }
       double wh = (1 - sep * i);
       bool point = false;

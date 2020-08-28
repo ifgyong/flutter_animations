@@ -2,6 +2,7 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_animations/flutter_animations.dart';
+import 'sp';
 
 void main() {
   runApp(MyApp());
@@ -40,6 +41,7 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
+  bool _isStop = false;
   Widget _row1() {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
@@ -49,6 +51,7 @@ class _MyHomePageState extends State<MyHomePage> {
           lines: 3,
           lineWidth: 2,
           centerFill: true,
+          stop: _isStop,
 //          radius: 100,
           soundDirection: SoundDirection.left,
         ),
@@ -58,10 +61,14 @@ class _MyHomePageState extends State<MyHomePage> {
           lineWidth: 2,
           centerFill: true,
 //          radius: 100,
+          stop: _isStop,
+
           soundDirection: SoundDirection.top,
         ),
         SoundWidget(
           color: Colors.red,
+          stop: _isStop,
+
           lines: 3,
           lineWidth: 2,
           centerFill: true,
@@ -73,11 +80,14 @@ class _MyHomePageState extends State<MyHomePage> {
           lines: 3,
           lineWidth: 2,
           centerFill: true,
+          stop: _isStop,
+
 //          radius: 100,
           soundDirection: SoundDirection.down,
         ),
         SoundWidget(
           color: Colors.orange,
+          stop: _isStop,
           lines: 3,
           lineWidth: 2,
           centerFill: true,
@@ -87,9 +97,11 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
         SoundWidget(
           color: Colors.blue,
+          stopColor: Colors.black,
           lines: 3,
           lineWidth: 2,
           centerFill: true,
+          stop: _isStop,
           startAngle: pi / 8,
           sweepAngle: pi * 2 / 1.25,
           soundDirection: SoundDirection.down,
@@ -105,15 +117,19 @@ class _MyHomePageState extends State<MyHomePage> {
         title: Text(widget.title),
       ),
       body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            _row1(),
-          ],
-        ),
-      ),
+          child: CustomScrollView(
+        slivers: <Widget>[
+          SliverToBoxAdapter(
+            child: _row1(),
+          ),
+        ],
+      )),
       floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
+        onPressed: () {
+          setState(() {
+            _isStop = !_isStop;
+          });
+        },
         tooltip: 'Increment',
         child: Icon(Icons.add),
       ), // This trailing comma makes auto-formatting nicer for build methods.

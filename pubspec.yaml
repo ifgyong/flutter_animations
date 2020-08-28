@@ -1,9 +1,9 @@
 name: flutter_animations
 description: easy for animations,When you do a lot of calculation, you need this animation. When you make a network error or finish downloading files, you also need this animation。
-version: 0.0.1+0.3
+version: 0.0.1+0.4
 author: fgyong
 homepage: http://www.fgyong.cn
-repository: https://github.com/ifgyong/FYAnimations
+repository: https://github.com/ifgyong/flutter_animations
 
 environment:
   sdk: ">=2.7.0 <3.0.0"
