@@ -25,3 +25,4 @@ import 'package:flutter_animations/flutter_animations.dart';
 
 
 
+## [LICENSE](LICENSE)
