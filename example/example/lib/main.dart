@@ -2,7 +2,6 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_animations/flutter_animations.dart';
-import 'sp';
 
 void main() {
   runApp(MyApp());
@@ -122,6 +121,20 @@ class _MyHomePageState extends State<MyHomePage> {
           SliverToBoxAdapter(
             child: _row1(),
           ),
+          SliverToBoxAdapter(
+            child: Container(
+              color: Colors.black,
+              alignment: Alignment.center,
+              child: Container(
+                child: Spinnies(
+                    duration: Duration(seconds: 6),
+                    blendMode: BlendMode.screen),
+                width: 200,
+                height: 200,
+              ),
+              height: 250,
+            ),
+          )
         ],
       )),
       floatingActionButton: FloatingActionButton(
