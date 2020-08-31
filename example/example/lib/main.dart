@@ -2,6 +2,7 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_animations/flutter_animations.dart';
+import 'package:flutter_animations/widget/chakra_widget.dart';
 
 void main() {
   runApp(MyApp());
@@ -109,6 +110,33 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 
+  Widget get _widget => SliverToBoxAdapter(
+        child: Container(
+          color: Colors.black,
+          alignment: Alignment.center,
+          child: Container(
+            child: Spinnies(
+                duration: Duration(seconds: 6), blendMode: BlendMode.screen),
+            width: 200,
+            height: 200,
+          ),
+          height: 250,
+        ),
+      );
+
+  /// 奇异博士 魔法动画
+  Widget get _chakra => SliverToBoxAdapter(
+        child: Container(
+          color: Colors.black,
+          alignment: Alignment.center,
+          child: Container(
+            child: Chakra(),
+            width: 100,
+            height: 200,
+          ),
+          height: 250,
+        ),
+      );
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -121,20 +149,8 @@ class _MyHomePageState extends State<MyHomePage> {
           SliverToBoxAdapter(
             child: _row1(),
           ),
-          SliverToBoxAdapter(
-            child: Container(
-              color: Colors.black,
-              alignment: Alignment.center,
-              child: Container(
-                child: Spinnies(
-                    duration: Duration(seconds: 6),
-                    blendMode: BlendMode.screen),
-                width: 200,
-                height: 200,
-              ),
-              height: 250,
-            ),
-          )
+          _widget,
+          _chakra
         ],
       )),
       floatingActionButton: FloatingActionButton(
