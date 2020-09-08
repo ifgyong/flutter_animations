@@ -26,7 +26,7 @@ import 'package:flutter_animations/flutter_animations.dart';
 
 ```
 
-> ⚠️ 注意： 具体版本[点我查询](https://pub.flutter-io.cn/packages/flutter_animations)查询
+> ⚠️ 注意： 具体版本[点我查询](https://pub.flutter-io.cn/packages/flutter_animations)
 
 # 示例
 > 每个动画斗鱼简单的例子。
