@@ -4,6 +4,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_animations/flutter_animations.dart';
 import 'package:flutter_animations/widget/chakra_widget.dart';
 
+import 'page/chakra.dart';
+import 'page/red_broken.dart';
+import 'page/spin.dart';
+
 void main() {
   runApp(MyApp());
 }
@@ -60,9 +64,7 @@ class _MyHomePageState extends State<MyHomePage> {
           lines: 4,
           lineWidth: 2,
           centerFill: true,
-//          radius: 100,
           stop: _isStop,
-
           soundDirection: SoundDirection.top,
         ),
         SoundWidget(
@@ -110,33 +112,29 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 
-  Widget get _widget => SliverToBoxAdapter(
-        child: Container(
-          color: Colors.black,
-          alignment: Alignment.center,
-          child: Container(
-            child: Spinnies(
-                duration: Duration(seconds: 6), blendMode: BlendMode.screen),
-            width: 200,
-            height: 200,
-          ),
-          height: 250,
-        ),
-      );
+  Widget _redPointBroken() {
+    return SliverToBoxAdapter(
+      child: OutlineButton(
+        child: Text('红色破碎'),
+        onPressed: () {
+          Navigator.of(context)
+              .push(MaterialPageRoute(builder: (_) => RedExamplePage()));
+        },
+      ),
+    );
+  }
 
-  /// 奇异博士 魔法动画
-  Widget get _chakra => SliverToBoxAdapter(
-        child: Container(
-          color: Colors.black,
-          alignment: Alignment.center,
-          child: Container(
-            child: Chakra(),
-            width: 100,
-            height: 200,
-          ),
-          height: 250,
-        ),
-      );
+  Widget _titleAndPushWidget({String title, Widget widget}) {
+    return SliverToBoxAdapter(
+      child: OutlineButton(
+        child: Text(title),
+        onPressed: () {
+          Navigator.of(context).push(MaterialPageRoute(builder: (_) => widget));
+        },
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -147,10 +145,16 @@ class _MyHomePageState extends State<MyHomePage> {
           child: CustomScrollView(
         slivers: <Widget>[
           SliverToBoxAdapter(
+            child: SizedBox(
+              height: 100,
+            ),
+          ),
+          SliverToBoxAdapter(
             child: _row1(),
           ),
-          _widget,
-          _chakra
+          _titleAndPushWidget(title: '魔法动画', widget: ChaKraPage()),
+          _titleAndPushWidget(title: '音乐跳动', widget: SpinPage()),
+          _titleAndPushWidget(title: '红色破碎', widget: RedExamplePage())
         ],
       )),
       floatingActionButton: FloatingActionButton(
