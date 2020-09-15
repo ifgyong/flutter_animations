@@ -1,5 +1,6 @@
 import 'dart:math';
 
+import 'package:example/page/flash_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animations/flutter_animations.dart';
 import 'package:flutter_animations/widget/chakra_widget.dart';
@@ -154,7 +155,8 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
           _titleAndPushWidget(title: '魔法动画', widget: ChaKraPage()),
           _titleAndPushWidget(title: '音乐跳动', widget: SpinPage()),
-          _titleAndPushWidget(title: '红色破碎', widget: RedExamplePage())
+          _titleAndPushWidget(title: '红色破碎', widget: RedExamplePage()),
+          _titleAndPushWidget(title: '无数据闪光效果', widget: BaseFlashPage())
         ],
       )),
       floatingActionButton: FloatingActionButton(

@@ -33,6 +33,4 @@ class _SpinPageState extends State<SpinPage> {
       ),
     );
   }
-
-  Widget _body() {}
 }
