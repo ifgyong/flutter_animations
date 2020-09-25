@@ -118,6 +118,7 @@ class ClockPainter extends CustomPainter {
     double shorterRadius = radius - 40;
     double outterRadius = radius - 20;
     double number = 120.0;
+
     for (var i = 0; i < number; ++i) {
       Offset p1 = Offset(center.dx + shorterRadius * (cos(i / number * pi * 2)),
           center.dy + shorterRadius * (sin(i / number * pi * 2)));
@@ -135,8 +136,10 @@ class ClockPainter extends CustomPainter {
     _paint.strokeWidth = 5.0;
     canvas.drawArc(smaillRect, 0, pi * 2, false, _paint);
 
+    var date = DateTime.now();
+
     /// 时针
-    double _hourPi = pi / 3;
+    double _hourPi = pi * 2 * date.hour / 12.0 - pi / 2;
     double _hourLength = shorterCircleRadius + 20;
     Offset _hourFrom = Offset(center.dx + shorterCircleRadius * (cos(_hourPi)),
         center.dy + shorterCircleRadius * (sin(_hourPi)));
@@ -146,7 +149,7 @@ class ClockPainter extends CustomPainter {
     canvas.drawLine(_hourFrom, _hourTo, _paint);
 
     /// 分针
-    double _miPi = pi / 6;
+    double _miPi = pi * 2 * date.minute / 60.0 - pi / 2;
     double _miLength = shorterCircleRadius + 40;
     Offset _miFrom = Offset(center.dx + shorterCircleRadius * (cos(_miPi)),
         center.dy + shorterCircleRadius * (sin(_miPi)));
@@ -155,7 +158,7 @@ class ClockPainter extends CustomPainter {
     canvas.drawLine(_miFrom, _miTo, _paint);
 
     /// 秒针
-    double _sPi = pi * 2 * second / 60.0;
+    double _sPi = pi * 2 * date.second / 60.00 - pi / 2;
     double _sLength = shorterCircleRadius + 50;
     Offset _sFrom = Offset(center.dx + shorterCircleRadius * (cos(_sPi)),
         center.dy + shorterCircleRadius * (sin(_sPi)));
