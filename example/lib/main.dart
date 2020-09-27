@@ -1,6 +1,6 @@
 import 'dart:math';
 
-import 'package:example/page/3d_clock.dart';
+import 'package:example/page/3d_page.dart';
 import 'package:example/page/flash_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animations/flutter_animations.dart';
@@ -38,14 +38,6 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
-  }
-
   bool _isStop = false;
   Widget _row1() {
     return Row(
@@ -145,7 +137,7 @@ class _MyHomePageState extends State<MyHomePage> {
           _titleAndPushWidget(title: '音乐跳动', widget: SpinPage()),
           _titleAndPushWidget(title: '红色破碎', widget: RedExamplePage()),
           _titleAndPushWidget(title: '无数据闪光效果', widget: BaseFlashPage()),
-          _titleAndPushWidget(title: '3d 时钟', widget: ThreeDClockPage())
+          _titleAndPushWidget(title: '3d 时钟', widget: ThreePage())
         ],
       )),
       floatingActionButton: FloatingActionButton(
