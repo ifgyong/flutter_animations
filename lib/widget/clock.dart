@@ -11,20 +11,37 @@ import 'package:flutter/material.dart';
 ///
 
 class ThreeDClock extends StatefulWidget {
+  /// 圆圈颜色
   final Color circleColor;
+
+  /// 圆圈周围分割线颜色
   final Color clockLinesColor;
+
+  /// 中心颜色
   final Color centerColor;
+
+  /// 秒针颜色
   final Color secondHandColor;
+
+  /// 时针颜色
   final Color hourHandColor;
+
+  /// 分针颜色
   final Color mintueColor;
+
+  /// 背景颜色
   final Color backgroundColor;
+
+  /// 高亮分割线颜色
   final Color lightclockLinesColor;
 
   /// 秒针画几个格子,最好是12的倍数例如[12,24,48,96,108,120,132,144,156,180]
   final int numbers;
+
+  /// 12 3 6 9 样式
   final TextStyle textStyle;
 
-  /// 范围[0,2π]
+  /// 范围[0,2π] 高亮尾巴长度
   final double tailLength;
   ThreeDClock(
       {this.centerColor,
